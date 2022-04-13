@@ -1,0 +1,47 @@
+
+
+<nz-layout>
+    <nz-sider nzCollapsible nzWidth="200px">
+      <div class="logo">vibhAga</div>
+      <ul nz-menu nzTheme="dark" nzMode="inline">
+        <li nz-menu-item>
+          <!-- <i nz-icon nzType="pie-chart"></i> -->
+          <span> <a routerLink="create">Add </a> </span>
+        </li>
+        <li nz-menu-item>
+          <!-- <i nz-icon nzType="desktop"></i> -->
+          <span><a routerLink="view"> View </a></span>
+        </li>
+        <li nz-menu-item>
+          <!-- <i nz-icon nzType="desktop"></i> -->
+          <button nz-button nzType="default" nzDanger><a routerLink=""> Logout </a></button>
+        </li>
+        <!-- <li nz-submenu nzTitle="User" nzIcon="user">
+          <ul>
+            <li nz-menu-item>Tom</li>
+            <li nz-menu-item>Bill</li>
+            <li nz-menu-item>Alex</li>
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="Team" nzIcon="team">
+          <ul>
+            <li nz-menu-item>Team 1</li>
+            <li nz-menu-item>Team 2</li>
+          </ul>
+        </li>
+        <li nz-menu-item>
+          <i nz-icon nzType="file"></i>
+          <span>File</span>
+        </li> -->
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-header></nz-header>
+      <nz-content>
+        <router-outlet>
+
+        </router-outlet>
+      </nz-content>
+      <nz-footer> </nz-footer>
+    </nz-layout>
+  </nz-layout>

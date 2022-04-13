@@ -1,0 +1,21 @@
+<div id="map"></div>
+
+<div style="display: flex;flex-direction: column;">
+<div style="display: flex;flex-direction: row;" *ngFor="let data of allData">
+    <div style="width: 400px;">
+        <h1> {{data.title}}</h1>
+        <p> {{data.description}}</p>
+        <p *ngIf="data.isdonate"> To donate </p>
+        <p *ngIf="!data.isdonate"> To sell </p>
+        <a href=""> Get more info</a>
+    </div>
+    <div>  <img *ngFor="let i of data.image"
+        nz-image
+        width="200px"
+        height="200px"
+        [nzSrc]="i"
+        alt="" style="margin:0px 5px"
+      /></div>
+    
+</div>
+</div>

@@ -1,0 +1,85 @@
+<h1>Add anything you wish to Sell / Donate</h1>
+<form nz-form [formGroup]="uploadForm"  (ngSubmit)="submitData()">
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Kindly enter Name">
+          <nz-input-group>
+            <input type="text" nz-input formControlName="title" placeholder="Name" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Kindly enter description">
+          <nz-input-group>
+            <input type="text" nz-input formControlName="description" placeholder="Description" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="">
+          <nz-input-group>
+            <!-- <input type="text" nz-input formControlName="description" placeholder="Description" /> -->
+            <nz-upload
+            nzAction=""
+            nzListType="picture-card"
+            [(nzFileList)]="fileList"
+            [nzShowButton]="fileList.length < 8"
+            [nzPreview]="handlePreview">
+            <div>
+              <i nz-icon nzType="plus"></i>
+              <div style="margin-top: 8px">Upload</div>
+            </div>
+          </nz-upload>  
+        </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="">
+          <nz-input-group>
+            <nz-switch formControlName="isDonate" nzCheckedChildren="Donate" nzUnCheckedChildren="Sell"></nz-switch>
+        </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        
+        <nz-form-control nzErrorTip="">
+          <nz-input-group>
+          <nz-input-number formControlName="price" placeholder="Price" [nzMin]="0" [nzMax]="10" [nzStep]="1"></nz-input-number>
+        </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <div id="map"></div>
+
+      
+     
+      <button style="margin-top: 15px;" nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Submit</button>
+
+
+</form>
+
+<!-- <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+  <agm-marker style="width: 400px;height: 400px;" [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+    ></agm-marker>
+</agm-map> -->
+<!-- <p>Locate your position  for access</p> 
+
+<h5>Address: {{address}}</h5>
+<div>Latitude: {{latitude}}</div>
+<div>Longitude: {{longitude}}</div> -->
+
+    
+  
+  
+
+
+  <nz-modal
+  [nzVisible]="previewVisible"
+  [nzContent]="modalContent"
+  [nzFooter]="null"
+  (nzOnCancel)="previewVisible = false"
+>
+  <ng-template #modalContent>
+    <img [src]="previewImage" [ngStyle]="{ width: '100%' }" />
+  </ng-template>
+</nz-modal>
